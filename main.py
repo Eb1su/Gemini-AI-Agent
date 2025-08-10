@@ -4,8 +4,6 @@ from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 
-MODEL_NAME = 'gemini-2.0-flash-001'
-
 def main():
     
     user_prompt = sys.argv[1]
@@ -21,7 +19,7 @@ def main():
     ]
 
     response = client.models.generate_content(
-        model=MODEL_NAME,
+        model='gemini-2.0-flash-001',
         contents=messages,
     )
 
