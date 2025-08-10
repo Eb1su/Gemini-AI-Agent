@@ -1,6 +1,7 @@
-from functions.get_files_info import get_files_info
 from functions.get_file_content import get_file_content
+from functions.get_files_info import get_files_info
 from functions.write_file import write_file
+from functions.run_python import run_python_file
 
 def info_tests():
     print(get_files_info('calculator', '.'))
@@ -21,6 +22,13 @@ def write_tests():
     print(write_file("calculator", "pkg/morelorem.txt", "lorem ipsum dolor sit amet"))
     print(write_file("calculator", "/tmp/temp.txt", "this should not be allowed"))
 
-info_tests()
-contents_test()
-write_tests()
+def execute_tasks():
+    print(run_python_file('calculator', 'lorem.txt'))
+    print(run_python_file("calculator", "main.py"))
+
+
+
+# info_tests()
+# contents_test()
+# write_tests()
+execute_tasks()
