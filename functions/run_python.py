@@ -1,5 +1,6 @@
 import os
 import subprocess
+from google.genai import types
 
 def run_python_file(working_directory, file_path, args=[]):
     try:
@@ -26,3 +27,18 @@ def run_python_file(working_directory, file_path, args=[]):
         return f'STDOUT: {returned_result.stdout},\nSTDERR: {returned_result.stderr}\n'
     except Exception as e:
         print(f'Error: executing Python file: {e}\n')
+
+
+schema_run_python_file = types.FunctionDeclaration(
+    name="run_python_file",
+    description="Executes a Python file that is contained within the working directory",
+    parameters=types.Schema(
+        type=types.Type.OBJECT,
+        properties={
+            "file_path": types.Schema(
+                type=types.Type.STRING,
+                description="The file path to the Python file.",
+            ),
+        },
+    ),
+)
